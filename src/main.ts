@@ -1,25 +1,17 @@
 import { Plugin } from 'obsidian';
-import { DEFAULT_SETTINGS, MyPluginSettings, SampleSettingTab } from './settings';
-
+import MyWorker from 'myworker.worker';
 
 export default class MyPlugin extends Plugin {
-	settings: MyPluginSettings;
 
 	async onload() {
-		await this.loadSettings();
-		await this.saveSettings();
-		this.addSettingTab(new SampleSettingTab(this));
-	}
-
-	onunload() {
-
-	}
-
-	async loadSettings() {
-		this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
-	}
-
-	async saveSettings() {
-		await this.saveData(this.settings);
+		this.registerEvent(
+			this.app.vault.on('modify', (file) => {
+				const worker = new MyWorker();
+				worker.postMessage(`File modified: ${file.path}`);
+				worker.onmessage = (event) => {
+					console.log(`Main thread received message: ${event.data}`);
+				}
+			})
+		)
 	}
 }

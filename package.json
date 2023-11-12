@@ -1,5 +1,5 @@
 {
-	"name": "obsidian-sample-plugin",
+	"name": "obsidian-web-worker-example",
 	"version": "0.1.0",
 	"description": "",
 	"scripts": {
@@ -22,6 +22,7 @@
 	},
 	"dependencies": {
 		"@codemirror/language": "^6.9.1",
-		"@lezer/common": "^1.1.0"
+		"@lezer/common": "^1.1.0",
+		"esbuild-plugin-inline-worker": "^0.1.1"
 	}
 }
