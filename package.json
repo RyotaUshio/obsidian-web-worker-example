@@ -1,7 +1,7 @@
 {
 	"name": "obsidian-web-worker-example",
-	"version": "0.1.0",
-	"description": "",
+	"version": "0.1.1",
+	"description": "A minimal working example of building an Obsidian.md plugin using web workers",
 	"scripts": {
 		"dev": "node esbuild.config.mjs",
 		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
