@@ -1,4 +1,4 @@
-# Obsidian Sample Plugin
+# Obsidian Web Worker Example
 
 This is a minimal working example of building an [Obsidian.md](https://obsidian.md/) plugin using [web workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers).
 
